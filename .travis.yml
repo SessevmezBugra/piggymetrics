@@ -9,12 +9,13 @@ jdk: oraclejdk8
 
 env:
   global:
-    - secure: "sessevmezbugra@gmail.com" # DOCKER_EMAIL
-    - secure: "bsessevmez" # DOCKER_USER
-    - secure: "Legolas.2101" # DOCKER_PASS
+    - DOCKER_EMAIL: "sessevmezbugra@gmail.com" # DOCKER_EMAIL
+    - DOCKER_USER: "bsessevmez" # DOCKER_USER
+    - DOCKER_PASS: "Legolas.2101" # DOCKER_PASS
     - COMMIT=${TRAVIS_COMMIT::7}
 
 after_success:
+  - bash <(curl -s https://codecov.io/bash)
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
   #TAG
