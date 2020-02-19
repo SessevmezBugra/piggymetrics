@@ -7,12 +7,9 @@ services:
 language: java
 jdk: oraclejdk8
 
-# env:
-#   global:
-#     - DOCKER_EMAIL: "sessevmezbugra@gmail.com" # DOCKER_EMAIL
-#     - DOCKER_USER: "bsessevmez" # DOCKER_USER
-#     - DOCKER_PASS: "Legolas.2101" # DOCKER_PASS
-#     - COMMIT=${TRAVIS_COMMIT::7}
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
